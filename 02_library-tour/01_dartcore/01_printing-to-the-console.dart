@@ -1,3 +1,5 @@
+//https://dart.cn/guides/libraries/library-tour#printing-to-the-console
+
 import 'dart:math';
 
 void main(List<String> args) {
