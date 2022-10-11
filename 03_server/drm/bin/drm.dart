@@ -18,13 +18,13 @@ Future<void> drm(List<String> paths,{bool force = false}) async {
     await stdin.pipe(stdout);
   }else{
     for (final path in paths) {
-      
       try {
         if (force){
           File(path).delete();
         }
         else{
-          File(path).rename("/workspace/HelloDart/Recycle/${path}");
+          var time = new DateTime.now().millisecondsSinceEpoch;
+          File(path).rename("/workspace/HelloDart/Recycle/${time}-${path}");
         }
       } catch (_) {
         await _handleError(path);
