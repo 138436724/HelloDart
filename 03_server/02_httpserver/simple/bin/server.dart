@@ -65,7 +65,7 @@ Response _sumHandler(Request request, String a, String b) {
   final aNum = int.parse(a);
   final bNum = int.parse(b);
   return Response.ok(
-    _jsonEncode({'a': aNum, 'b': bNum, 'sum': aNum + bNum}),
+    _jsonEncode({'a': aNum, 'b': bNum, 'sum': aNum * bNum}),
     headers: {
       ..._jsonHeaders,
       'Cache-Control': 'public, max-age=604800, immutable',
