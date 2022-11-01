@@ -52,38 +52,42 @@ final _router = shelf_router.Router()
   ..get('/info.json', _infoHandler)
   ..get('/sum/<a|[0-9]+>/<b|[0-9]+>', _sumHandler)
   ..get('/mul/<a|[0-9]+>/<b|[0-9]+>', _mulHandler)
-  ..post('/register', (Request request) async{
+  ..post('/register', (Request request) async {
     final String s = await request.readAsString();
     // print(s);
     File f = File('public/db.txt');
     f.writeAsString('$s\n', mode: FileMode.append);
     return Response.seeOther('/');
   })
-  ..post('/login', (Request request) async{
+  ..post('/login', (Request request) async {
     final String s = await request.readAsString();
     // print(s);
-    Stream lines = new File('public/db.txt').openRead().transform(utf-8.decoder).transform(const LinsSplitter());
+    Stream lines = File('public/db.txt')
+        .openRead()
+        .transform(utf8.decoder)
+        .transform(const LineSplitter());
     var success = false;
-    await for (final line in lines){
-      if (s.compareTo(line) == 0){
+    await for (final line in lines) {
+      if (s.compareTo(line) == 0) {
         print("登录成功");
         success = true;
-        return Request.ok(
-          _jsonEncode({'state':'登录成功'}),
+        return Response.ok(
+          _jsonEncode({'state': '登录成功'}),
           headers: {
-          ..._jsonHeaders,
-          'Cache-Control': 'public, max-age=604800, immutable',
-         },
+            ..._jsonHeaders,
+            'Cache-Control': 'public, max-age=604800, immutable',
+          },
         );
-        break;
       }
     }
-    if (success == false){
-      _jsonEncode({'state': '登录失败'}),
-    headers: {
-      ..._jsonHeaders,
-      'Cache-Control': 'public, max-age=604800, immutable',
-    },
+    if (success == false) {
+      return Response.ok(
+        _jsonEncode({'state': '登录成功'}),
+        headers: {
+          ..._jsonHeaders,
+          'Cache-Control': 'public, max-age=604800, immutable',
+        },
+      );
     }
     // f.writeAsString('$s\n', mode: FileMode.append);
     return Response.seeOther('/');
