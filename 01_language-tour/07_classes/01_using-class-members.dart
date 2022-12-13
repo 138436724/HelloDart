@@ -14,12 +14,13 @@ class Point {
 void main(List<String> args) {
   var p = Point(2, 2);
 
-// Get the value of y.
+  // Get the value of y.
   assert(p.y == 2);
 
-// Invoke distanceTo() on p.
+  // Invoke distanceTo() on p.
   double distance = p.distanceTo(Point(4, 4));
   print(distance);
 
-  var a = p?.y;
+  // If p is non-null, set a variable equal to its y value.
+  // var a = p?.y;
 }
