@@ -2,7 +2,7 @@
 class Person {
   String firstName = '';
 
-  Person(String s);
+  Person(this.firstName);
 }
 
 void main(List<String> args) {

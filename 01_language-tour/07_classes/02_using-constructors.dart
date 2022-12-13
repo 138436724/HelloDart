@@ -1,10 +1,10 @@
 // https://dart.cn/guides/language/language-tour#using-constructors
 
 class ImmutablePoint {
-  final double x = 0;
-  final double y = 0;
+  final double x;
+  final double y;
 
-  const ImmutablePoint(double x, double y);
+  const ImmutablePoint(this.x, this.y);
 }
 
 void main(List<String> args) {

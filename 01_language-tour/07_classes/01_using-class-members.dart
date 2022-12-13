@@ -4,7 +4,7 @@ class Point {
   double x = 0;
   double y = 0;
 
-  Point(int x, int y);
+  Point(this.x, this.y);
 
   double distanceTo(Point p) {
     return (x - p.x) * (x - p.x) + (y - p.y) * (y - p.y);
