@@ -1,3 +1,5 @@
+// https://dart.cn/guides/language/language-tour#finally
+
 void misbehave() {
   try {
     dynamic foo = true;
