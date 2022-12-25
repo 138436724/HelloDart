@@ -27,3 +27,7 @@ mixin MusicalPerformer on Musician {
 class SingerDancer extends Musician with MusicalPerformer {
   // ...
 }
+
+void main(List<String> args) {
+  var singerDancer = SingerDancer();
+}
