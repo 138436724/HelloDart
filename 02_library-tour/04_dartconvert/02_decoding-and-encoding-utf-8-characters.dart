@@ -1,5 +1,6 @@
 // https://dart.cn/guides/libraries/library-tour#decoding-and-encoding-utf-8-characters
 import 'dart:convert';
+import 'dart:io';
 
 Future<void> main(List<String> args) async {
   List<int> utf8Bytes = [
@@ -48,8 +49,9 @@ Future<void> main(List<String> args) async {
   var funnyWord = utf8.decode(utf8Bytes);
 
   assert(funnyWord == 'Îñţérñåţîöñåļîžåţîờñ');
+  File f = File("file.txt");
+  Stream<List<int>> inputStream = f.openRead();
 
-  Stream<List<int>> inputStream = "hello world" as Stream<List<int>>;
   var lines = utf8.decoder.bind(inputStream).transform(const LineSplitter());
   try {
     await for (final line in lines) {
