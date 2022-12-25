@@ -58,4 +58,11 @@ void maps_const() {
   // constantMap[2] = 'Helium'; // This line will cause an error.
 }
 
-void main(List<String> args) {}
+void main(List<String> args) {
+  maps_create();
+  maps();
+  maps_add();
+  maps_get();
+  maps_length();
+  maps_const();
+}
