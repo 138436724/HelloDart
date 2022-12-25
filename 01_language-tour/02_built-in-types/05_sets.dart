@@ -39,4 +39,10 @@ void sets_const() {
   // constantSet.add('helium'); // This line will cause an error.
 }
 
-void main(List<String> args) {}
+void main(List<String> args) {
+  sets();
+  sets_null();
+  sets_add();
+  sets_length();
+  sets_const();
+}
