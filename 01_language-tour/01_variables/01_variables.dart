@@ -1,5 +1,5 @@
 // (https://dart.cn/guides/language/language-tour#variables)
-// 只需要做到泛型之前
+
 void main(List<String> args) {
   var_name();
   Object_name();
