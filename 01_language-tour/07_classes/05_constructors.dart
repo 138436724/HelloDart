@@ -34,3 +34,8 @@ class ImmutablePoint {
 
   const ImmutablePoint(this.x, this.y);
 }
+
+void main() {
+  var vector3d = Vector3d(1, 2, 3);
+  print(vector3d);
+}
